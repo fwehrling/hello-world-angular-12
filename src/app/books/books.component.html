@@ -1,0 +1,97 @@
+<input type="text" [value]="valueInitial" /> <br /><br />
+<select>
+  <option>1</option>
+  <option>2</option>
+  <option [selected]="checkValue(increment)">3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+
+<br /><br />
+
+<div [hidden]="isHidden">MA DIV</div>
+
+<p [style.color]="couleur">Ce texte est de couleur {{ couleur }}</p>
+
+<button (click)="onClick()">Cliquez ici</button>
+
+<br /><br />
+
+<div class="bubblingup1" (click)="premierClick()">
+  <div class="bubblingup2" (click)="deuxiemeClick($event)">Deuxième click</div>
+  Premier click
+</div>
+
+<br /><br />
+
+<textarea (keydown.shift.space)="onSpace()" cols="30" rows="10"></textarea>
+
+<br /><br />
+
+<input type="text" #mavariablelocale /> {{ mavariablelocale.value }}
+<button (click)="mavariablelocale.focus()">Focus</button>
+<button (click)="showMaVariableLocale(mavariablelocale.value)">
+  Show valeur variable locale
+</button>
+{{ valeurDeMaVariableLocale }}
+
+<br /><br />
+
+<div
+  [ngStyle]="{
+    'background-color': 'yellow',
+    'width.px': width,
+    'height.px': height
+  }"
+>
+  DIRECTIVE STRUCTURELLE NGSTYLE
+</div>
+
+<br /><br />
+
+<div [ngStyle]="objStyle">UN OBJET DE STYLE</div>
+
+<br /><br />
+
+<div [ngClass]="{ carre: myClass }">Mon carré</div>
+
+<br /><br />
+
+<ng-template [ngIf]="books.length > 3">
+  <div>Nombre de livres {{ books.length }}</div>
+</ng-template>
+
+<div *ngIf="books.length > 3; else moinsDeQuatre">
+  Nombre de livres {{ books.length }}
+</div>
+
+<ng-template #moinsDeQuatre>
+  <div>Il y a moins de quatre livres !</div>
+</ng-template>
+
+<br /><br />
+
+<ul>
+  <li
+    *ngFor="
+      let book of books;
+      let i = index;
+      let o = odd;
+      let e = even;
+      let f = first;
+      let l = last;
+      trackBy: identify
+    "
+    [ngClass]="{ first: f, odd: o, even: e, last: l }"
+  >
+    {{ book.title }}
+    <button (click)="removeBook(i)">Supprimer</button>
+  </li>
+</ul>
+
+<div [ngSwitch]="books.length">
+  <p *ngSwitchCase="0">Aucun livre trouvé !</p>
+  <p *ngSwitchCase="1">1 livre trouvé !</p>
+  <p *ngSwitchCase="2">2 livres trouvés !</p>
+  <p *ngSwitchDefault>Plus de 2 livres trouvés !</p>
+</div>

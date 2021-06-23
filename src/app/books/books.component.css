@@ -1,0 +1,33 @@
+.bubblingup1 {
+  height: 100px;
+  width: 100px;
+  border: 1px red solid;
+}
+
+.bubblingup2 {
+  height: 50px;
+  width: 50px;
+  border: 1px blue solid;
+}
+
+.carre {
+  width: 100px;
+  height: 100px;
+  border: 1px solid orange;
+}
+
+.odd {
+  background-color: rgb(145, 142, 142);
+}
+
+.even {
+  background-color: rgb(77, 75, 75);
+}
+
+.first {
+  color: red;
+}
+
+.last {
+  color: blue;
+}
