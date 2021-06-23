@@ -1,0 +1,78 @@
+<h1>Créer une voiture</h1>
+<input #marque placeholder="marque" /><br />
+<input #couleur placeholder="couleur" /><br />
+<select #carburant (change)="onChangeCarburant(+carburant.value)">
+  <ng-container *ngFor="let carburant of carburants; let i = index">
+    <option [value]="i" [selected]="i === 0">
+      {{ carburant.libelle }}
+    </option></ng-container
+  >
+</select>
+<br />
+<input #nbplace type="number" placeholder="nombre de places" /><br />
+<input #nbporte type="number" placeholder="nombre de portes" /><br />
+<button
+  (click)="
+    createCar(marque.value, couleur.value, +nbplace.value, +nbporte.value)
+  "
+>
+  Ajouter cette voiture
+</button>
+
+<h2>Liste des voitures</h2>
+<ng-container *ngIf="cars.length > 0; else carsEmpty">
+  <table [ngStyle]="{ 'width.%': 40 }">
+    <thead>
+      <tr>
+        <th>Marque</th>
+        <th>Couleur</th>
+        <th>Diesel</th>
+        <th>Essence</th>
+        <th>Gaz</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody [ngStyle]="{ textAlign: 'center' }">
+      <ng-container *ngFor="let car of cars; let i = index; let e = even">
+        <tr [ngClass]="{ bgClair: e, bgFonce: !e }">
+          <td>{{ car.marque }}</td>
+          <td>{{ car.couleur }}</td>
+          <td>
+            <input
+              type="checkbox"
+              [checked]="checkCarburant(car.carburant) === 'Diesel'"
+            />
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              [checked]="checkCarburant(car.carburant) === 'Essence'"
+            />
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              [checked]="checkCarburant(car.carburant) === 'Gaz'"
+            />
+          </td>
+          <td><button (click)="removeCar(i)">Supprimer</button></td>
+          <td><button (click)="showCar(i)">Détail</button></td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #carsEmpty>
+  <p>Aucune voiture disponible pour le moment</p>
+</ng-template>
+<ng-template [ngIf]="myCar">
+  <h2>Détail de votre voiture</h2>
+  {{ myCar.marque }}<br />
+  {{ myCar.couleur }}<br />
+  {{ getCarburant(myCar.carburant) }}<br />
+  {{ myCar.nbPlace }} places<br />
+  {{ myCar.nbPorte }} portes<br />
+</ng-template>
+<h3>Exercice Letters</h3>
+{{ "La formation est superbe" | letters: espace.Off:casse.Majuscule }}

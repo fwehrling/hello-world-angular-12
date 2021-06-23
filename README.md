@@ -25,3 +25,73 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Exercice 1
+
+1/ créer un nouveau composant "cars" => appelé depuis appComponent
+2/ créer une interface Car :
+    - marque
+    - couleur
+    - carburant
+    - nbPlace
+    - nbPorte
+3/ créer un enum concernant le carburant :
+    - Diesel
+    - Essence
+    - Gaz
+4/ créer autant de champs input que de propriété
+   de l'interface Car
+5/ créer un bouton "Ajouter une voiture"
+6/ lister les voitures avec marque et couleur et une case à cocher pour chaque carburant possible
+7/ présenter la liste en utilisant des classes (interval de couleur)
+8/ ajouter un bouton "supprimer"
+9/ afficher un message si aucune voiture n'est enregistrée
+10/ ajouter un bouton "detail"
+11/ afficher le détail de la voiture (toutes les infos). Si aucune voiture
+    choisie alors afficher un message
+
+renault bleu Essence
+BMW rouge Diesel 
+
+MARQUE | COULEUR | DIESEL | ESSENCE | GAZ
+renault  bleu                x
+BMW      rouge        x
+
+tab = [
+    0,1,2,Diesel,Essence,Gaz
+]
+
+carburants = Carburant;
+carburants[0] = Diesel => <option value="0">Diesel</option> => <option [value]="carburants[0]">{{ carburants[0] }}</option>
+
+listCarburants = Object.keys(this.carburants)
+                .filter(e => !isNaN(+e))                           //listCaburants = [0,1,2];
+                .map(o => {index: o, libelle: this.carburants[0]}) //[{index: 0, libelle: 'Diesel'}, {index: 1, libelle: 'Essence'}...]
+
+[0,1,2,3,4,5,6].filter(e => e % 2 === 0).map(e => e * 2) // 0, 4, 8, 12
+ 
+ngFor="let item of listCaburant" => item
+
+enum Carburant[0] = Diesel
+
+## Exercice 2
+1/ créer un pipe letters
+2/ retourner le texte avec un interval de minuscule et majuscule
+   en commençant par une minuscule
+3/ ajouter un paramètre pour savoir si on tient compte de l'espace
+4/ ajouter un 2ème paramètre pour savoir si on commence par une minuscule
+
+exemple :
+
+# si on ne tient pas compte des espaces :
+
+"la formation est superbe" => "lA fOrMaTiOn EsT sUpErBe"
+
+# si on tient compte des espaces :
+
+"la formation est superbe" => "lA FoRmAtIoN EsT SuPeRbE"
+
+# si on ne commence par une minuscule et on tient compte des espaces
+
+"la formation est superbe" => "La fOrMaTiOn eSt sUpErBe"
+

@@ -1,0 +1,27 @@
+<div *ngFor="let book of books">{{ book.title }}</div>
+<div *ngFor="let car of cars | slice: 2:3">{{ car.marque }}</div>
+
+{{ cars | slice: 2:3 | json }}
+<br /><br />
+{{ "un jour" | uppercase }}
+<br /><br />
+{{ "UN JOUR" | lowercase }}
+<br /><br />
+{{ "un jour" | titlecase }}
+
+<p>{{ 12345 | number }}</p>
+<p>{{ 12345 | number: "6." }}</p>
+<p>{{ 12345 | number: ".2" }}</p>
+<p>{{ 12345 | number: "6.2" }}</p>
+<p>{{ 0.8 | percent }}</p>
+<p>{{ 0.8657 | percent: ".4" }}</p>
+<p>{{ 10.6 | currency: "CAD" }}</p>
+<p>{{ 10.6 | currency: "CAD":"symbol-narrow" }}</p>
+<p>{{ 10.6 | currency: "EUR":"code":".3" }}</p>
+<p>{{ "2021-03-24" | date: "dd/MM/yyyy" }}</p>
+<p>{{ "2021-03-24" | date: "longDate" }}</p>
+<p>{{ date | date: "HH:mm" }}</p>
+<p>{{ date | date: "shortTime" }}</p>
+<p>{{ asyncGreeting | async }}</p>
+<p>{{ "Bonjour les amis" | word }}</p>
+<p>{{ "2019-02-25" | fromNow }}</p>
