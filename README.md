@@ -95,3 +95,20 @@ exemple :
 
 "la formation est superbe" => "La fOrMaTiOn eSt sUpErBe"
 
+## Exercice 3
+
+https://jsonplaceholder.typicode.com/todos
+
+1/ créer un service todo
+2/ créer un composant todos (parent)
+3/ créer un composant todo (enfant)
+4/ créer une interface todo
+5/ créer une méthode http.get dans le service pour récupérer tous les todos
+ => retourne un observable de type todo
+6/ le composant todos fait appel à la méthode du service pour récupérer les todos
+7/ le composant todos envoie les données des todos à todo
+8/ le composant todo affiche les 10 premiers todos (utiliser un pipe)
+
+
+
+

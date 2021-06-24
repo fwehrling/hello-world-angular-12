@@ -14,6 +14,18 @@ import { HighlightDirective } from './shared/directives/highlight.directive';
 import { ParentComponent } from './parent/parent.component';
 import { EnfantComponent } from './enfant/enfant.component';
 import { Enfant2Component } from './enfant2/enfant2.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
+import { TodosComponent } from './todos/todos.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: BookComponent },
+  { path: 'cars', component: CarsComponent },
+  { path: 'todos', component: TodosComponent },
+  { path: 'parent', component: ParentComponent },
+  { path: '**', redirectTo: '' },
+];
 
 @NgModule({
   declarations: [
@@ -30,8 +42,10 @@ import { Enfant2Component } from './enfant2/enfant2.component';
     ParentComponent,
     EnfantComponent,
     Enfant2Component,
+    TodoComponent,
+    TodosComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
 })

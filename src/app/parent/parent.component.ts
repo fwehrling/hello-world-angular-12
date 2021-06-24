@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { CommunicationService } from '../shared/services/communication.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CommunicationService } from '../shared/services/communication.service';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css'],
 })
-export class ParentComponent implements OnInit {
+export class ParentComponent implements OnInit, DoCheck {
   couleurs: string[] = [];
   couleur!: string;
 
@@ -21,5 +21,11 @@ export class ParentComponent implements OnInit {
     this.communicationService.setInformation(
       `Message provenant du service de communication : ${this.couleur}`
     );
+  }
+
+  ngDoCheck() {
+    if (this.couleur === 'black') {
+      alert('couleur black !');
+    }
   }
 }

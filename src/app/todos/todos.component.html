@@ -1,0 +1,4 @@
+<hlw-todo
+  *ngFor="let todo of todos$ | async | slice: -10"
+  [todo]="todo"
+></hlw-todo>

@@ -1,0 +1,18 @@
+ul {
+  height: 30px;
+}
+
+li {
+  display: inline-block;
+  height: 25px;
+  min-width: 90px;
+  background-color: yellow;
+  margin: auto 10px;
+  padding-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.selected-menu {
+  background-color: blue;
+}

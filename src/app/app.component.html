@@ -4,4 +4,37 @@
 
 <!-- <hlw-cars></hlw-cars> -->
 
-<hlw-parent></hlw-parent>
+<!-- <hlw-parent></hlw-parent> -->
+
+<!-- <hlw-todos></hlw-todos> -->
+<ul>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/"
+  >
+    Accueil
+  </li>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/cars"
+  >
+    Voitures
+  </li>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/todos"
+  >
+    Todos
+  </li>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/parent"
+  >
+    Parent
+  </li>
+</ul>
+<router-outlet></router-outlet>

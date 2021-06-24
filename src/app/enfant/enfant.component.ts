@@ -5,6 +5,8 @@ import {
   Output,
   EventEmitter,
   OnDestroy,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommunicationService } from '../shared/services/communication.service';
@@ -14,7 +16,7 @@ import { CommunicationService } from '../shared/services/communication.service';
   templateUrl: './enfant.component.html',
   styleUrls: ['./enfant.component.css'],
 })
-export class EnfantComponent implements OnInit, OnDestroy {
+export class EnfantComponent implements OnInit, OnDestroy, OnChanges {
   @Input() couleurs: string[] = [];
   @Output() couleur: EventEmitter<string> = new EventEmitter();
 
@@ -22,6 +24,10 @@ export class EnfantComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
 
   constructor(private communicationService: CommunicationService) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
 
   ngOnInit(): void {
     this.subscription = this.communicationService
