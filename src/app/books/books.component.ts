@@ -90,4 +90,8 @@ export class BooksComponent implements OnInit {
   deleteBook(i: number) {
     this.removeBook(i);
   }
+
+  changeColor() {
+    this.couleur = 'orange';
+  }
 }

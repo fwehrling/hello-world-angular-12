@@ -1,0 +1,6 @@
+<ng-container *ngFor="let couleur of couleurs"
+  ><p [hlwHighlight]="couleur" (click)="getCouleur(couleur)">
+    {{ couleur }}
+  </p></ng-container
+>
+<p>{{ information }}</p>

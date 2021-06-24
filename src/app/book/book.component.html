@@ -1,5 +1,9 @@
 <button (click)="send()">J'envois une information</button>
 
-<button *ngFor="let tab of tableau; let i = index" (click)="delete(i)">
+<button
+  hlwDoNothing="3"
+  *ngFor="let tab of tableau; let i = index"
+  (click)="delete(i)"
+>
   supprimer le livre {{ tab }}
 </button>
