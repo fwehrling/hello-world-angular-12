@@ -12,7 +12,7 @@ import { Car } from '../shared/interfaces/car';
 export class CarsComponent implements OnInit {
   cars: Car[] = [];
   carburants: any = Carburant;
-  carburant: Carburant = 0;
+  carburant: Carburant = Carburant.Diesel;
   myCar!: Car | null;
   espace: any = Espace;
   casse: any = Casse;
@@ -58,7 +58,7 @@ export class CarsComponent implements OnInit {
 
   showCar(i: number): void {
     this.myCar = this.cars[i];
-    setTimeout(() => (this.myCar = null), 3000);
+    setTimeout(() => (this.myCar = null), 5000);
   }
 
   getCarburant(index: number): string {

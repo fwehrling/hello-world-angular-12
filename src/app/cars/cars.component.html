@@ -5,8 +5,8 @@
   <ng-container *ngFor="let carburant of carburants; let i = index">
     <option [value]="i" [selected]="i === 0">
       {{ carburant.libelle }}
-    </option></ng-container
-  >
+    </option>
+  </ng-container>
 </select>
 <br />
 <input #nbplace type="number" placeholder="nombre de places" /><br />
@@ -20,7 +20,7 @@
 </button>
 
 <h2>Liste des voitures</h2>
-<ng-container *ngIf="cars.length > 0; else carsEmpty">
+<ng-container *ngIf="cars.length > 0; else carEmpty">
   <table [ngStyle]="{ 'width.%': 40 }">
     <thead>
       <tr>
@@ -63,7 +63,7 @@
     </tbody>
   </table>
 </ng-container>
-<ng-template #carsEmpty>
+<ng-template #carEmpty>
   <p>Aucune voiture disponible pour le moment</p>
 </ng-template>
 <ng-template [ngIf]="myCar">
@@ -75,4 +75,4 @@
   {{ myCar.nbPorte }} portes<br />
 </ng-template>
 <h3>Exercice Letters</h3>
-{{ "La formation est superbe" | letters: espace.Off:casse.Majuscule }}
+{{ "La formation est superbe" | letters: espace.On:casse.Minuscule }}

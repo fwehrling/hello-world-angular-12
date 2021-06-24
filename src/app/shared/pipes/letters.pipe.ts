@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class LettersPipe implements PipeTransform {
   transform(value: string, ...args: number[]): string {
     let phrase: string[] = [];
-    let isMajuscule: boolean = args[1] ? true : false;
-    [...value].forEach((letter: string, index: number) => {
+    let isMajuscule: boolean = args[1] === 0 ? true : false;
+    [...value].forEach((letter: string) => {
       if (args[0] === 0 && letter === ' ') {
         phrase.push(letter);
         return;
