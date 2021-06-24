@@ -8,6 +8,8 @@ import { WordPipe } from './shared/pipes/word.pipe';
 import { FromNowPipe } from './shared/pipes/from-now.pipe';
 import { CarsComponent } from './cars/cars.component';
 import { LettersPipe } from './shared/pipes/letters.pipe';
+import { BookComponent } from './book/book.component';
+import { DoNothingDirective } from './shared/directives/do-nothing.directive';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,12 @@ import { LettersPipe } from './shared/pipes/letters.pipe';
     WordPipe,
     FromNowPipe,
     CarsComponent,
-    LettersPipe
+    LettersPipe,
+    BookComponent,
+    DoNothingDirective,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

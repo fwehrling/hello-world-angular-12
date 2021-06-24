@@ -13,7 +13,7 @@ export class CarsComponent implements OnInit {
   cars: Car[] = [];
   carburants: any = Carburant;
   carburant: Carburant = Carburant.Diesel;
-  myCar!: Car | null;
+  myCar!: Promise<Car> | null;
   espace: any = Espace;
   casse: any = Casse;
 
@@ -57,7 +57,11 @@ export class CarsComponent implements OnInit {
   }
 
   showCar(i: number): void {
-    this.myCar = this.cars[i];
+    // this.myCar = this.cars[i];
+    this.myCar = new Promise((resolve) =>
+      setTimeout(() => resolve(this.cars[i]), 3000)
+    );
+
     setTimeout(() => (this.myCar = null), 5000);
   }
 

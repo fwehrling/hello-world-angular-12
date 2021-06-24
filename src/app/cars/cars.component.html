@@ -66,13 +66,13 @@
 <ng-template #carEmpty>
   <p>Aucune voiture disponible pour le moment</p>
 </ng-template>
-<ng-template [ngIf]="myCar">
+<div *ngIf="myCar | async as car">
   <h2>Détail de votre voiture</h2>
-  {{ myCar.marque }}<br />
-  {{ myCar.couleur }}<br />
-  {{ getCarburant(myCar.carburant) }}<br />
-  {{ myCar.nbPlace }} places<br />
-  {{ myCar.nbPorte }} portes<br />
-</ng-template>
+  {{ car.marque }}<br />
+  {{ car.couleur }}<br />
+  {{ getCarburant(car.carburant) }}<br />
+  {{ car.nbPlace }} places<br />
+  {{ car.nbPorte }} portes<br />
+</div>
 <h3>Exercice Letters</h3>
-{{ "La formation est superbe" | letters: espace.On:casse.Minuscule }}
+{{ "La formation est superbe" | letters: espace.Off:casse.Majuscule }}

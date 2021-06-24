@@ -1,11 +1,20 @@
+<hlw-book
+  (information)="information($event)"
+  (deleteBook)="deleteBook($event)"
+></hlw-book>
+
+<br /><br />
+
 <input type="text" [value]="valueInitial" /> <br /><br />
-<select>
+<select hlwDoNothing>
   <option>1</option>
   <option>2</option>
   <option [selected]="checkValue(increment)">3</option>
   <option>4</option>
   <option>5</option>
 </select>
+
+<footer hlwDoNothing="red">COUCOU</footer>
 
 <br /><br />
 
@@ -24,7 +33,9 @@
 
 <br /><br />
 
-<textarea (keydown.shift.space)="onSpace()" cols="30" rows="10"></textarea>
+<textarea (keydown.shift.space)="onSpace()" cols="30" rows="10">{{
+  info
+}}</textarea>
 
 <br /><br />
 

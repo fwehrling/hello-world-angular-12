@@ -23,6 +23,7 @@ export class BooksComponent implements OnInit {
     { title: 'livre3', page: 15 },
     { title: 'livre4', page: 19 },
   ];
+  info!: string;
 
   ngOnInit(): void {
     this.valueInitial = 'ma valeur initiale';
@@ -80,5 +81,13 @@ export class BooksComponent implements OnInit {
 
   removeBook(index: number): void {
     this.books.splice(index, 1);
+  }
+
+  information(info: string) {
+    this.info = `BOOKS : ${info}`;
+  }
+
+  deleteBook(i: number) {
+    this.removeBook(i);
   }
 }
