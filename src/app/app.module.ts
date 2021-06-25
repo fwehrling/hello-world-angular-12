@@ -27,6 +27,9 @@ import { AuthentificationGuard } from './shared/guards/authentification.guard';
 import { TodoAvecResolverComponent } from './todo-avec-resolver/todo-avec-resolver.component';
 import { TodoResolver } from './shared/resolvers/todo.resolver';
 import { AdministrationModule } from './administration/administration.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormTemplateSimpleComponent } from './form-template-simple/form-template-simple.component';
+import { FormCodeComponent } from './form-code/form-code.component';
 
 const routes: Routes = [
   { path: '', component: BookComponent },
@@ -56,6 +59,8 @@ const routes: Routes = [
         (m) => m.AdministrationModule
       ),
   },
+  { path: 'form-template-simple', component: FormTemplateSimpleComponent },
+  { path: 'form-code', component: FormCodeComponent },
   { path: '**', redirectTo: '' },
 ];
 
@@ -82,8 +87,16 @@ const routes: Routes = [
     RouteFillesComponent,
     RouteFillesBComponent,
     TodoAvecResolverComponent,
+    FormTemplateSimpleComponent,
+    FormCodeComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

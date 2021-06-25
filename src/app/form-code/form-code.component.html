@@ -1,0 +1,31 @@
+<h2>Se connecter par le code</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+    <label>Username</label>
+    <input formControlName="username" />
+    <div *ngIf="usernameCtrl?.dirty && usernameCtrl?.hasError('required')">
+      Username is required
+    </div>
+    <div *ngIf="usernameCtrl?.dirty && usernameCtrl?.hasError('minlength')">
+      Username should be 3 characters min
+    </div>
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="passwordCtrl?.dirty && passwordCtrl?.hasError('required')">
+      Password is required
+    </div>
+  </div>
+  <div>
+    <label>Birth date</label>
+    <input type="date" formControlName="birthdate" />
+    <div *ngIf="birthdateCtrl.dirty">
+      <div *ngIf="birthdateCtrl.hasError('required')">
+        Birth date is required
+      </div>
+      <div *ngIf="birthdateCtrl.hasError('tooYoung')">You're way too young</div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">Register</button>
+</form>

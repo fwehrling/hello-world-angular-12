@@ -57,5 +57,19 @@
   >
     Administration
   </li>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/form-template-simple"
+  >
+    Formulaire template simple
+  </li>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/form-code"
+  >
+    Formulaire par le code
+  </li>
 </ul>
 <router-outlet></router-outlet>

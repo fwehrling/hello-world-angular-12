@@ -120,3 +120,68 @@ https://jsonplaceholder.typicode.com/todos
 2/ créer un resolver Todo
 3/ créer un nouveau chemin dans app.module avec un resolver
 4/ afficher le todo récupérer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOUVEAU PROJET TODOS
+
+
+PROJET TODO :
+
+- créer un nouveau projet angular avec le routing, css
+
+IDENTIFICATION :
+
+- créer un module identification
+- créer un service identification dans un dossier services dans son module
+- créer un formulaire d'identification dans son module
+- 2 champs :
+    - username
+    - mot de passe
+
+TODO :
+
+- créer un module todo
+- créer un composant todos dans son module todo
+- créer un composant todo dans son module todo
+- créer un service todo dans un dossier services dans son module
+    - 4 méthodes :
+        - getTodos
+        - getTodo(id)
+        - deleteTodo(id)
+        - updateTodo(id)
+
+
+EXPLICATIONS :
+
+- créer le routing principal
+- créer les routings des sous modules
+- le component todos récupère les todos depuis le service et les envoie un à un à todo
+- le component todo affiche un todo avec les boutons associés :
+    - modifier => affiche un formulaire dans le même template avec les champs préremplis
+    - supprimer
+- le component todo permet d'afficher le todo suivant ou précédent
+- les services s'occupent de communiquer avec la BDD
+- utiliser les resolver pour récupérer les données
+- utiliser le guard CanLoad pour accéder à todos
+- un bouton "déconnexion" permet de se déconnecter de l'application
+
+
+
+
+

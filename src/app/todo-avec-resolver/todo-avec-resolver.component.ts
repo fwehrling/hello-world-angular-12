@@ -12,6 +12,7 @@ import { Todo } from '../shared/interfaces/todo';
 export class TodoAvecResolverComponent implements OnInit {
   todos: Todo[] = [];
   todo!: Todo;
+  todo$!: Observable<Todo>;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -19,5 +20,7 @@ export class TodoAvecResolverComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id') ?? 0;
     this.route.data.subscribe((data: Data) => (this.todos = data['todos']));
     this.todo = this.todos.filter((todo: Todo) => todo.id === +id)[0];
+
+    //this.todo$ = this.route.snapshot.data['todos'].pipe(filter((todo: Todo) => todo.id === +id),first(()))
   }
 }
