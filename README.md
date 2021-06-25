@@ -109,6 +109,7 @@ https://jsonplaceholder.typicode.com/todos
 7/ le composant todos envoie les données des todos à todo
 8/ le composant todo affiche les 10 premiers todos (utiliser un pipe)
 
+# Exercice 4
 
-
-
+1/ créer un chemin qui va permettre de récupérer un todo spécifique
+2/ créer un bouton détail qui va permettre d'afficher ce todo dans le composant TodoDetail

@@ -18,11 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
 import { RouterModule, Routes } from '@angular/router';
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 
 const routes: Routes = [
   { path: '', component: BookComponent },
   { path: 'cars', component: CarsComponent },
   { path: 'todos', component: TodosComponent },
+  { path: 'todos/:id', component: TodoDetailComponent },
   { path: 'parent', component: ParentComponent },
   { path: '**', redirectTo: '' },
 ];
@@ -44,6 +46,7 @@ const routes: Routes = [
     Enfant2Component,
     TodoComponent,
     TodosComponent,
+    TodoDetailComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],

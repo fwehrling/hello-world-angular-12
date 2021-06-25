@@ -16,7 +16,13 @@ export class TodoService {
       .pipe(shareReplay(1));
   }
 
-  addTodo(todo: Todo) {
+  getTodoById(id: number): Observable<Todo> {
+    return this.http.get<Todo>(
+      `https://jsonplaceholder.typicode.com/todos/${id}`
+    );
+  }
+
+  addTodo(todo: Todo): any {
     return this.http.post<Todo>(
       'https://jsonplaceholder.typicode.com/todos',
       todo
