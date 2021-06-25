@@ -26,6 +26,7 @@ import { RouteFillesBComponent } from './route-filles-b/route-filles-b.component
 import { AuthentificationGuard } from './shared/guards/authentification.guard';
 import { TodoAvecResolverComponent } from './todo-avec-resolver/todo-avec-resolver.component';
 import { TodoResolver } from './shared/resolvers/todo.resolver';
+import { AdministrationModule } from './administration/administration.module';
 
 const routes: Routes = [
   { path: '', component: BookComponent },
@@ -47,6 +48,13 @@ const routes: Routes = [
     path: 'todo-avec-resolver/:id',
     component: TodoAvecResolverComponent,
     resolve: { todos: TodoResolver },
+  },
+  {
+    path: 'administration',
+    loadChildren: () =>
+      import('./administration/administration.module').then(
+        (m) => m.AdministrationModule
+      ),
   },
   { path: '**', redirectTo: '' },
 ];
