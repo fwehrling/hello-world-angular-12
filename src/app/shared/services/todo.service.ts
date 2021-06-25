@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { Todo } from '../interfaces/todo';
 
@@ -27,5 +27,12 @@ export class TodoService {
       'https://jsonplaceholder.typicode.com/todos',
       todo
     );
+  }
+
+  search(value: string): Observable<string> {
+    if (value === 'franck') {
+      return of('Gagné!');
+    }
+    return of();
   }
 }

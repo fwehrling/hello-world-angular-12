@@ -1,4 +1,7 @@
 <h2>Se connecter par le code</h2>
+
+<p *ngIf="response">{{ response }}</p>
+
 <form (ngSubmit)="register()" [formGroup]="userForm">
   <div>
     <label>Username</label>
@@ -9,12 +12,27 @@
     <div *ngIf="usernameCtrl?.dirty && usernameCtrl?.hasError('minlength')">
       Username should be 3 characters min
     </div>
+    <div *ngIf="usernameCtrl?.dirty && usernameCtrl?.hasError('alreadyUsed')">
+      Already used !
+    </div>
   </div>
-  <div>
-    <label>Password</label>
-    <input type="password" formControlName="password" />
-    <div *ngIf="passwordCtrl?.dirty && passwordCtrl?.hasError('required')">
-      Password is required
+  <div formGroupName="passwordForm">
+    <div>
+      <label>Password</label>
+      <input type="password" formControlName="password" />
+      <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
+        Password is required
+      </div>
+    </div>
+    <div>
+      <label>Confirm password</label>
+      <input type="password" formControlName="confirm" />
+      <div *ngIf="confirmCtrl.dirty && confirmCtrl.hasError('required')">
+        Confirm your password
+      </div>
+    </div>
+    <div *ngIf="passwordForm.dirty && passwordForm.hasError('matchingError')">
+      Your password does not match
     </div>
   </div>
   <div>
