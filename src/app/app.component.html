@@ -36,5 +36,12 @@
   >
     Parent
   </li>
+  <li
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="selected-menu"
+    routerLink="/route-parent"
+  >
+    Route Parent
+  </li>
 </ul>
 <router-outlet></router-outlet>

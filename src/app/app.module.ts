@@ -20,6 +20,9 @@ import { TodosComponent } from './todos/todos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoDetailNavigateComponent } from './todo-detail-navigate/todo-detail-navigate.component';
+import { RouteParentComponent } from './route-parent/route-parent.component';
+import { RouteFillesComponent } from './route-filles/route-filles.component';
+import { RouteFillesBComponent } from './route-filles-b/route-filles-b.component';
 
 const routes: Routes = [
   { path: '', component: BookComponent },
@@ -28,6 +31,14 @@ const routes: Routes = [
   { path: 'todos/:id', component: TodoDetailComponent },
   { path: 'todos/:id/navigate', component: TodoDetailNavigateComponent },
   { path: 'parent', component: ParentComponent },
+  {
+    path: 'route-parent',
+    component: RouteParentComponent,
+    children: [
+      { path: '', component: RouteFillesComponent },
+      { path: 'b', component: RouteFillesBComponent },
+    ],
+  },
   { path: '**', redirectTo: '' },
 ];
 
@@ -50,6 +61,9 @@ const routes: Routes = [
     TodosComponent,
     TodoDetailComponent,
     TodoDetailNavigateComponent,
+    RouteParentComponent,
+    RouteFillesComponent,
+    RouteFillesBComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
