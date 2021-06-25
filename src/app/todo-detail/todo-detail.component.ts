@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Todo } from '../shared/interfaces/todo';
 import { TodoService } from '../shared/services/todo.service';
 
@@ -10,7 +10,7 @@ import { TodoService } from '../shared/services/todo.service';
   styleUrls: ['./todo-detail.component.css'],
 })
 export class TodoDetailComponent implements OnInit {
-  todo$!: Observable<Todo>;
+  todo$!: Observable<Todo> | null;
 
   constructor(
     private todoService: TodoService,

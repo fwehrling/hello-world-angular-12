@@ -19,12 +19,14 @@ import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { TodoDetailNavigateComponent } from './todo-detail-navigate/todo-detail-navigate.component';
 
 const routes: Routes = [
   { path: '', component: BookComponent },
   { path: 'cars', component: CarsComponent },
   { path: 'todos', component: TodosComponent },
   { path: 'todos/:id', component: TodoDetailComponent },
+  { path: 'todos/:id/navigate', component: TodoDetailNavigateComponent },
   { path: 'parent', component: ParentComponent },
   { path: '**', redirectTo: '' },
 ];
@@ -47,6 +49,7 @@ const routes: Routes = [
     TodoComponent,
     TodosComponent,
     TodoDetailComponent,
+    TodoDetailNavigateComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],

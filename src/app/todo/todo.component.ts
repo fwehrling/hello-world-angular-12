@@ -17,4 +17,8 @@ export class TodoComponent implements OnInit {
   detailTodo(id: number): void {
     this.router.navigate(['/', 'todos', id]);
   }
+
+  detailNavigateTodo(id: number): void {
+    this.router.navigate(['/', 'todos', id, 'navigate']);
+  }
 }

@@ -1,0 +1,4 @@
+<div *ngIf="todo$ | async as mytodo">{{ mytodo | json }}</div>
+
+<button (click)="previousTodo()">Précédent</button>
+<button (click)="nextTodo()">Suivant</button>

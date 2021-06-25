@@ -1,1 +1,1 @@
-<p>{{ todo$ | async | json }}</p>
+<div *ngIf="todo$ | async as mytodo">{{ mytodo | json }}</div>
