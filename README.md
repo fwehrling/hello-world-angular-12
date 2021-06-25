@@ -113,3 +113,10 @@ https://jsonplaceholder.typicode.com/todos
 
 1/ créer un chemin qui va permettre de récupérer un todo spécifique
 2/ créer un bouton détail qui va permettre d'afficher ce todo dans le composant TodoDetail
+
+# Exercice 5
+
+1/ créer un composant TodoAvecResolver
+2/ créer un resolver Todo
+3/ créer un nouveau chemin dans app.module avec un resolver
+4/ afficher le todo récupérer

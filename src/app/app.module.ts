@@ -23,6 +23,9 @@ import { TodoDetailNavigateComponent } from './todo-detail-navigate/todo-detail-
 import { RouteParentComponent } from './route-parent/route-parent.component';
 import { RouteFillesComponent } from './route-filles/route-filles.component';
 import { RouteFillesBComponent } from './route-filles-b/route-filles-b.component';
+import { AuthentificationGuard } from './shared/guards/authentification.guard';
+import { TodoAvecResolverComponent } from './todo-avec-resolver/todo-avec-resolver.component';
+import { TodoResolver } from './shared/resolvers/todo.resolver';
 
 const routes: Routes = [
   { path: '', component: BookComponent },
@@ -34,10 +37,16 @@ const routes: Routes = [
   {
     path: 'route-parent',
     component: RouteParentComponent,
+    canActivate: [AuthentificationGuard],
     children: [
       { path: '', component: RouteFillesComponent },
       { path: 'b', component: RouteFillesBComponent },
     ],
+  },
+  {
+    path: 'todo-avec-resolver/:id',
+    component: TodoAvecResolverComponent,
+    resolve: { todos: TodoResolver },
   },
   { path: '**', redirectTo: '' },
 ];
@@ -64,6 +73,7 @@ const routes: Routes = [
     RouteParentComponent,
     RouteFillesComponent,
     RouteFillesBComponent,
+    TodoAvecResolverComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
